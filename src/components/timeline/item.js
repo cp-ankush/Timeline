@@ -1,13 +1,19 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 
 import { 
     ItemContainer,
     ItemContent
  } from './styles'
 
-const Item = ({ content }) => {
+const Item = ({ content, id, options, callback }) => {
+    const ref = useRef(null)
+    useEffect(() => {
+        const observer = new IntersectionObserver(callback, options)
+        observer.observe(ref.current)
+    }, [])
+
     return (
-        <ItemContainer>
+        <ItemContainer ref={ref}>
             <ItemContent>
                 {content.name}
             </ItemContent>

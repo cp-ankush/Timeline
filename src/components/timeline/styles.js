@@ -25,6 +25,7 @@ export const ItemContainer = styled.div`
     justify-content: flex-start;
     align-items: center;
     position: relative;
+    transition: opacity .25s ease-in-out;
     ::after {
         content: '';
         position: absolute;
